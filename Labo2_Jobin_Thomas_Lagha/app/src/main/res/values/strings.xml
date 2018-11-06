@@ -8,4 +8,9 @@
     <string name="GraphQL">GraphQL</string>
     <string name="sérialisation">sérialisation</string>
     <string name="compressée">compressée</string>
+    <string name="asynchroneTxt">Service de transmission asynchrone</string>
+    <string name="différéeTxt">Transmission différée</string>
+    <string name="GraphQLTxt">GraphQL – Format JSON</string>
+    <string name="sérialisationTxt">sérialisation Format JSON</string>
+    <string name="compresséeTxt">Transmission compressée</string>
 </resources>
