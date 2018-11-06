@@ -3,4 +3,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="asynchrone">asynchrone</string>
+    <string name="différée">différée</string>
+    <string name="GraphQL">GraphQL</string>
+    <string name="sérialisation">sérialisation</string>
+    <string name="compressée">compressée</string>
 </resources>

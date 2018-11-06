@@ -20,43 +20,84 @@
         app:menu="@menu/navigation" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="44dp" />
+        android:id="@+id/asynchrone"
+        android:layout_width="116dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginLeft="134dp"
+        android:layout_marginRight="134dp"
+        android:layout_marginStart="134dp"
+        android:text="@string/asynchrone"
+        app:layout_constraintBottom_toTopOf="@+id/différée"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="148dp" />
+        android:id="@+id/différée"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="27dp"
+        android:text="@string/différée"
+        app:layout_constraintBottom_toTopOf="@+id/GraphQL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/asynchrone" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="239dp" />
+        android:id="@+id/GraphQL"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/GraphQL"
+        app:layout_constraintBottom_toTopOf="@+id/sérialisation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/différée" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="335dp" />
+        android:id="@+id/sérialisation"
+        android:layout_width="125dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="111dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginRight="111dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="21dp"
+        android:text="@string/sérialisation"
+        app:layout_constraintBottom_toTopOf="@+id/compressée"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GraphQL" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="442dp" />
+        android:id="@+id/compressée"
+        android:layout_width="113dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="166dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginRight="123dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="34dp"
+        android:text="@string/compressée"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sérialisation" />
 
 </android.support.constraint.ConstraintLayout>
