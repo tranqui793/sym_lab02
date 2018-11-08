@@ -11,6 +11,7 @@
         android:id="@+id/asynchrone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="loginActivity"
         android:text="@string/asynchrone"
         app:layout_constraintBottom_toTopOf="@+id/différée"
         app:layout_constraintEnd_toEndOf="parent"
