@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-public class LoginAsynchrone extends Activity implements View.OnClickListener {
+public class  LoginAsynchrone extends Activity implements View.OnClickListener {
     //creation des composants
     private EditText et_usename,et_password;
     private Button btn_login;
