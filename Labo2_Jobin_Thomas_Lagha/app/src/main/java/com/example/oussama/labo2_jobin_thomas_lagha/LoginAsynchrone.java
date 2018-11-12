@@ -38,6 +38,15 @@ public class  LoginAsynchrone extends Activity implements View.OnClickListener {
 
 
             pb_login.setVisibility(View.VISIBLE);
+
+            sendRequest(username+password,"http//:sym.iict.ch/rest/txt");
+
         }
+    }
+
+    public String sendRequest(String request,String url){
+        AsynchSendRequest asycSendHandler=new AsynchSendRequest();
+        asycSendHandler.execute(request,url);
+        return null ;
     }
 }

@@ -2,9 +2,14 @@ package com.example.oussama.labo2_jobin_thomas_lagha;
 
 import android.os.AsyncTask;
 
-public class AsynchSendRequest extends AsyncTask<void,void,void> {
-    @Override
-    protected void doInBackground(void... voids) {
+import okhttp3.OkHttpClient;
 
+public class AsynchSendRequest extends AsyncTask<String,String,String> {
+    OkHttpClient client = new OkHttpClient();
+    @Override
+    protected String doInBackground(String... params) {
+
+    return null;
     }
+
 }
