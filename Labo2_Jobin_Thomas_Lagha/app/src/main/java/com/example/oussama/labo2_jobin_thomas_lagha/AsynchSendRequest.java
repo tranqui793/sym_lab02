@@ -1,5 +1,6 @@
 package com.example.oussama.labo2_jobin_thomas_lagha;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -12,6 +13,9 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class AsynchSendRequest extends AsyncTask<String,String,String> {
+    private CommunicationEventListener listener;
+    public AsynchSendRequest(){
+    }
     OkHttpClient client = new OkHttpClient();
     @Override
     protected String doInBackground(String... params) {
@@ -30,7 +34,19 @@ public class AsynchSendRequest extends AsyncTask<String,String,String> {
     @Override
     protected  void onPostExecute(String s){
         super.onPostExecute(s);
-        //Toast.makeText()
+        listener.handleServerResponse(s);
     }
 
+    @Override
+    protected  void onPreExecute(){
+        super.onPreExecute();
+    }
+
+    public void setCommunicationEventListener(CommunicationEventListener l) {
+      this.listener =l;
+    }
+
+    public interface CommunicationEventListener {
+         boolean handleServerResponse(String response);
+    }
 }

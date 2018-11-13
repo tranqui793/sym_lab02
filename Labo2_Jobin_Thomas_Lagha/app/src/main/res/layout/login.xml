@@ -22,7 +22,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:ems="10"
         android:id="@+id/et_password" />
     <Button
         android:layout_width="fill_parent"
@@ -32,9 +31,10 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="34dp"/>
-    <ProgressBar
-        android:layout_width="fill_parent"
+    <EditText
+        android:id="@+id/responseText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        android:id="@+id/pb_login"/>
+        android:inputType="textMultiLine" />
 </LinearLayout>

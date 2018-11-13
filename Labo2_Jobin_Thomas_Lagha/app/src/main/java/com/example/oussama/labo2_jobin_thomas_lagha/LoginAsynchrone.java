@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class  LoginAsynchrone extends Activity implements View.OnClickListener {
     //creation des composants
-    private EditText et_usename,et_password;
+    private EditText et_usename,et_password,et_response;
     private Button btn_login;
-    private ProgressBar pb_login;
 
     //Variables
     private String username,password;
@@ -24,7 +24,7 @@ public class  LoginAsynchrone extends Activity implements View.OnClickListener {
         et_usename=findViewById(R.id.et_username);
         et_password=findViewById(R.id.et_password);
         btn_login=findViewById(R.id.btn_login);
-        pb_login=findViewById(R.id.pb_login);
+        et_response=findViewById(R.id.responseText);
 
         btn_login.setOnClickListener(this );
 
@@ -36,17 +36,24 @@ public class  LoginAsynchrone extends Activity implements View.OnClickListener {
             username=et_usename.getText().toString();
             password=et_password.getText().toString();
 
-
-            pb_login.setVisibility(View.VISIBLE);
-
-            sendRequest(username+password,"http://sym.iict.ch/rest/txt");
+            sendRequest("username: "+ username+" password: "+password,"http://sym.iict.ch/rest/txt");
 
         }
     }
 
     public String sendRequest(String request,String url){
         AsynchSendRequest asycSendHandler=new AsynchSendRequest();
+        asycSendHandler.setCommunicationEventListener(new AsynchSendRequest.CommunicationEventListener() {
+            @Override
+            public boolean handleServerResponse(String response) {
+                Toast.makeText(getApplicationContext(),"Le traitement Asynchrone est terminé",Toast.LENGTH_LONG).show();
+                et_response.setVisibility(View.VISIBLE);
+                et_response.setText(response);
+                return false;
+            }
+        });
         asycSendHandler.execute(request,url);
         return null ;
     }
+
 }
