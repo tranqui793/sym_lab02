@@ -43,7 +43,7 @@ public class  LoginAsynchrone extends Activity implements View.OnClickListener {
 
     public String sendRequest(String request,String url){
         AsynchSendRequest asycSendHandler=new AsynchSendRequest();
-        asycSendHandler.setCommunicationEventListener(new AsynchSendRequest.CommunicationEventListener() {
+        asycSendHandler.setCommunicationEventListener(new CommunicationEventListener() {
             @Override
             public boolean handleServerResponse(String response) {
                 Toast.makeText(getApplicationContext(),"Le traitement Asynchrone est terminé",Toast.LENGTH_LONG).show();

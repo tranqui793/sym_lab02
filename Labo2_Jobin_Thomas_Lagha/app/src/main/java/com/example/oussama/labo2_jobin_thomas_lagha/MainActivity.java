@@ -20,4 +20,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intentLogin=new Intent(this,LoginAsynchrone.class);
         startActivity(intentLogin);
     }
+    public void graphQL(View view ){
+        Intent intentGraphQL=new Intent(this,GraphQL.class);
+        startActivity(intentGraphQL);
+    }
 }

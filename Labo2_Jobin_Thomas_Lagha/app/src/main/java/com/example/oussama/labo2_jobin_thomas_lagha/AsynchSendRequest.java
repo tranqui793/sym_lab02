@@ -45,8 +45,4 @@ public class AsynchSendRequest extends AsyncTask<String,String,String> {
     public void setCommunicationEventListener(CommunicationEventListener l) {
       this.listener =l;
     }
-
-    public interface CommunicationEventListener {
-         boolean handleServerResponse(String response);
-    }
 }
