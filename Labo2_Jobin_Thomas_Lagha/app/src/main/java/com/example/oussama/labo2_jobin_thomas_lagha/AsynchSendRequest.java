@@ -1,8 +1,6 @@
 package com.example.oussama.labo2_jobin_thomas_lagha;
 
-import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import java.io.IOException;
 

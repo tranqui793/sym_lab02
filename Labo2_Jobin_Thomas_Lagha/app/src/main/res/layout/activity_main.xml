@@ -34,6 +34,7 @@
         android:id="@+id/GraphQL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="graphQL"
         android:text="@string/GraphQL"
         app:layout_constraintBottom_toTopOf="@+id/sérialisation"
         app:layout_constraintEnd_toEndOf="parent"

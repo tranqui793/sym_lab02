@@ -13,6 +13,6 @@
     <string name="GraphQLTxt">GraphQL – Format JSON</string>
     <string name="sérialisationTxt">sérialisation Format JSON</string>
     <string name="compresséeTxt">Transmission compressée</string>
-
     <string name="choixAuteur">1. Choix d\'un auteur :</string>
+    <string name="posteAuteur">2. Choix de l\'auteur :</string>
 </resources>
