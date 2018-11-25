@@ -46,7 +46,7 @@ public class  Serialized extends Activity implements View.OnClickListener {
         //et_response=findViewById(R.id.responseText);
         btn_login.setOnClickListener(this);
 
-        connect("http://sym.iict.ch/rest/txt");
+        connect("http://sym.iict.ch/rest/json");
 
     }
 
