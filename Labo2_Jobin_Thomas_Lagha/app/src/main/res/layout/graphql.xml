@@ -45,4 +45,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choixAuteur"
         tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/responseTestt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:inputType="textMultiLine" />
 </android.support.constraint.ConstraintLayout>
