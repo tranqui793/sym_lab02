@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +21,7 @@ import java.util.LinkedList;
 public class GraphQL extends Activity {
     Spinner spiner ;
     ArrayList<Author> authors=new ArrayList<>();
+    ArrayList<Post> posts=new ArrayList<>();
     LinearLayout postLayouts;
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -74,17 +77,51 @@ public class GraphQL extends Activity {
         asycSendHandler.execute("{ \"query\": \"{allAuthors{id, first_name, last_name }}\" }","http://sym.iict.ch/api/graphql","application/json");
         return null ;
     }
-    public String sendRequestAuthorPosts(Author author){
+    public String sendRequestAuthorPosts(final Author author){
         AsynchSendRequest asycSendHandler=new AsynchSendRequest();
         asycSendHandler.setCommunicationEventListener(new CommunicationEventListener() {
             @Override
             public boolean handleServerResponse(String response) {
+                postLayouts.removeAllViews();
+                JSONObject jsonResponse = null;
+                try {
+                    jsonResponse = new JSONObject(response);
+                    JSONObject data = jsonResponse.getJSONObject("data");
+                    JSONArray allPosts = data.getJSONArray("allPostByAuthor");
+                    TextView authorTextView = new TextView(GraphQL.this);
+                    authorTextView.setText(author.toString());
+                    authorTextView.setLayoutParams(new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.FILL_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT));
 
+                    postLayouts.addView(authorTextView);
+                    for (int i=0; i < allPosts.length(); i++)
+                    {
+                        JSONObject postJson = allPosts.getJSONObject(i);
+                        String title = postJson.getString("title");
+                        String description = postJson.getString("description");
+                        Post post = new Post(title,description);
+                        posts.add(post);
+                        View linearLayout =  findViewById(R.id.info);
+                        //LinearLayout layout = (LinearLayout) findViewById(R.id.info);
+
+
+                        TextView valueTV = new TextView(GraphQL.this);
+                        valueTV.setText("\n"+post);
+                        valueTV.setLayoutParams(new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.FILL_PARENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT));
+
+                        postLayouts.addView(valueTV);
+                    }
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 return false;
             }
         });
         asycSendHandler.execute("{\n" +
-                "\"query\": \"{allPostByAuthor(authorId:" + author.getId() +")}}","http://sym.iict.ch/api/graphql","application/json");
+                "\"query\": \"{allPostByAuthor(authorId:" + author.getId() +"){title description}}\"}","http://sym.iict.ch/api/graphql","application/json");
         return null ;}
 }
 class Author{
@@ -123,5 +160,33 @@ class Author{
     @Override
     public String toString() {
         return id +" "+first_name+" "+last_name;
+    }
+}
+class Post{
+    String title,description;
+    public Post(String title,String description){
+        this.title=title;
+        this.description=description;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Title: "+title +"\n"+"Description: "+description;
     }
 }
