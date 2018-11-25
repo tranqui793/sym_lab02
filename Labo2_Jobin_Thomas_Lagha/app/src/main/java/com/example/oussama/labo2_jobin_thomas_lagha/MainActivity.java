@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 serialized(v);
             }
         });
-
+/**
         defferedButt = findViewById(R.id.différée);
         defferedButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 compressed(v);
             }
-        });
+        });**/
     }
 
     public void loginActivity(View view){
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentSerialized);
     }
 
-    public void deffered(View view){
+   /** public void deffered(View view){
         Intent intentDeffered = new Intent(this, Deffered.class);
         startActivity(intentDeffered);
     }
@@ -90,5 +90,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentCompressed);
 
     }
-
+**/
 }
