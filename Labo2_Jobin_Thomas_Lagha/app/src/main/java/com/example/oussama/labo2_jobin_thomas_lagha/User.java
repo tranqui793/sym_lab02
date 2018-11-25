@@ -1,3 +1,14 @@
+/**
+-----------------------------------------------------------------------------------------
+Laboratory  : SYM - Laboratory n°2
+File        : User.java
+Author      : Lagha Oussama, Jobin Simon, Thomas Benjamin
+Date        : 20.11.2018
+Goal        : Implementation of the User class for serialization purposes
+Remark(s)   : -
+----------------------------------------------------------------------------------------
+*/
+
 package com.example.oussama.labo2_jobin_thomas_lagha;
 
 public class User {

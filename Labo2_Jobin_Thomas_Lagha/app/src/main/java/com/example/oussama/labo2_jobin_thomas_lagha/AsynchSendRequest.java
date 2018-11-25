@@ -1,3 +1,15 @@
+/**
+-----------------------------------------------------------------------------------------
+Laboratory  : SYM - Laboratory n°2
+File        : AsynchSendRequest.java
+Author      : Lagha Oussama, Jobin Simon, Thomas Benjamin
+Date        : 20.11.2018
+Goal        : Implementation of the asynchronous sending of HTTP requests
+Remark(s)   : -
+----------------------------------------------------------------------------------------
+*/
+
+
 package com.example.oussama.labo2_jobin_thomas_lagha;
 
 import android.os.AsyncTask;
@@ -48,6 +60,9 @@ public class AsynchSendRequest extends AsyncTask<String,String,String> {
         super.onPreExecute();
     }
 
+    /** Set the CommunicationEventListener to a new value
+     * @param l the new value of listener
+     */
     public void setCommunicationEventListener(CommunicationEventListener l) {
       this.listener =l;
     }

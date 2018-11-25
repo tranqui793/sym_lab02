@@ -1,3 +1,15 @@
+/**
+-----------------------------------------------------------------------------------------
+Laboratory  : SYM - Laboratory n°2
+File        : MainActivity.java
+Author      : Lagha Oussama, Jobin Simon, Thomas Benjamin
+Date        : 20.11.2018
+Goal        : Implementation of the mainActivity that lead to the different transfer types
+Remark(s)   : -
+----------------------------------------------------------------------------------------
+*/
+
+
 package com.example.oussama.labo2_jobin_thomas_lagha;
 
 import android.content.Intent;
@@ -44,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 serialized(v);
             }
         });
-/**
+
         defferedButt = findViewById(R.id.différée);
         defferedButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -57,8 +69,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 compressed(v);
             }
-        });**/
+        });
     }
+
 
     public void loginActivity(View view){
         Intent intentLogin=new Intent(this, LoginAsynchrone.class);
@@ -80,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentSerialized);
     }
 
-   /** public void deffered(View view){
-        Intent intentDeffered = new Intent(this, Deffered.class);
+    public void deffered(View view){
+        Intent intentDeffered = new Intent(this, DelayedTransmission.class);
         startActivity(intentDeffered);
     }
 
@@ -90,5 +103,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentCompressed);
 
     }
-**/
+
 }
