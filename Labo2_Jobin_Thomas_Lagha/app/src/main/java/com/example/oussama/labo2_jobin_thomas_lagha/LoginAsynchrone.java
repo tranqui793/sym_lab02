@@ -51,7 +51,7 @@ public class  LoginAsynchrone extends Activity implements View.OnClickListener {
                 return false;
             }
         });
-        asycSendHandler.execute(request,url);
+        asycSendHandler.execute(request,url,"text/plain");
         return null ;
     }
 
