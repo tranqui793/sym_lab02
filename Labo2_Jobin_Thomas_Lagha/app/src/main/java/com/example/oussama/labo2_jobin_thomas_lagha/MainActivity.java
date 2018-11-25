@@ -62,11 +62,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loginActivity(View view){
-        Intent intentLogin=new Intent(this,LoginAsynchrone.class);
+        Intent intentLogin=new Intent(this, LoginAsynchrone.class);
         startActivity(intentLogin);
     }
+
+    public void delayedActivity(View view){
+        Intent intentDelayed = new Intent(this, DelayedTransmission.class);
+        startActivity(intentDelayed);
+    }
+
     public void graphQL(View view ){
-        Intent intentGraphQL=new Intent(this,GraphQL.class);
+        Intent intentGraphQL=new Intent(this, GraphQL.class);
         startActivity(intentGraphQL);
     }
 
