@@ -9,6 +9,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.InputStream;
+
 
 public class  Serialized extends Activity implements View.OnClickListener {
 
@@ -61,11 +63,17 @@ public class  Serialized extends Activity implements View.OnClickListener {
     }
 
 
-    public String sendRequest(String request,String url){
-        AsynchSendRequest asycSendHandler=new AsynchSendRequest();
+    /** Send a request to the url in paramter
+     * @param request the request to send
+     * @param url the url to which send the request
+     */
+    public void sendRequest(String request,String url){
+        final AsynchSendRequest asycSendHandler=new AsynchSendRequest();
         asycSendHandler.setCommunicationEventListener(new CommunicationEventListener() {
+
             @Override
             public boolean handleServerResponse(String response) {
+
                 verifyServerResponse(response);
                 et_response.setVisibility(View.VISIBLE);
                 et_response.setText(response);
@@ -73,7 +81,6 @@ public class  Serialized extends Activity implements View.OnClickListener {
             }
         });
         asycSendHandler.execute(request,url, "text/plain");
-        return null ;
     }
 
     /** Send the serialized data if the click was from btn_login

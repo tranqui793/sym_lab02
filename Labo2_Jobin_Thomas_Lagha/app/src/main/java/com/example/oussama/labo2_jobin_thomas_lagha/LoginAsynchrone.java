@@ -40,7 +40,11 @@ public class  LoginAsynchrone extends Activity implements View.OnClickListener {
         }
     }
 
-    public String sendRequest(String request,String url){
+    /** Send a request to the url in paramter
+     * @param request the request to send
+     * @param url the url to which send the request
+     */
+    public void sendRequest(String request,String url){
         AsynchSendRequest asycSendHandler=new AsynchSendRequest();
         asycSendHandler.setCommunicationEventListener(new CommunicationEventListener() {
             @Override
@@ -52,7 +56,6 @@ public class  LoginAsynchrone extends Activity implements View.OnClickListener {
             }
         });
         asycSendHandler.execute(request,url,"text/plain");
-        return null ;
     }
 
 }

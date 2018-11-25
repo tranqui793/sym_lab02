@@ -19,7 +19,11 @@ public class AsynchSendRequest extends AsyncTask<String,String,String> {
     protected String doInBackground(String... params) {
         Request.Builder builder=new Request.Builder()
                 .url(params[1]).post(RequestBody.create(MediaType.parse(params[2]),params[0]));
-        //builder.addHeader("X-Network", "CSD"); //Comment/Uncomment this line for compressed transmission
+
+        //-----Uncomment to make compression task-------
+        //builder.addHeader("Network", "CSD");
+        //builder.addHeader("X-Content-Encoding", "deflate");
+        //----------------------------------------------
 
         Request request=builder.build();
         try{
