@@ -19,6 +19,8 @@ public class AsynchSendRequest extends AsyncTask<String,String,String> {
     protected String doInBackground(String... params) {
         Request.Builder builder=new Request.Builder()
                 .url(params[1]).post(RequestBody.create(MediaType.parse(params[2]),params[0]));
+        //builder.addHeader("X-Network", "CSD"); //Comment/Uncomment this line for compressed transmission
+
         Request request=builder.build();
         try{
             Response response =client.newCall(request).execute();
@@ -29,6 +31,8 @@ public class AsynchSendRequest extends AsyncTask<String,String,String> {
 
         return null;
     }
+
+
     @Override
     protected  void onPostExecute(String s){
         super.onPostExecute(s);

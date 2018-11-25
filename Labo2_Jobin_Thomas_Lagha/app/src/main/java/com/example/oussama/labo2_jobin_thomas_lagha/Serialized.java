@@ -9,23 +9,15 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 
 public class  Serialized extends Activity implements View.OnClickListener {
 
     //Test variable
-    private Person person;
+    private User user;
 
     //UI
     private Button btn_login;
-    private EditText et_response;
+    private EditText  et_usename,et_password, et_response;
 
     //Conection
     private final String URL_SERVER = "http://sym.iict.ch/rest/json";
@@ -39,6 +31,10 @@ public class  Serialized extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.login);
+
+        //liaison des composants avec la vue
+        et_usename=findViewById(R.id.et_username);
+        et_password=findViewById(R.id.et_password);
         btn_login=findViewById(R.id.btn_login);
         et_response=findViewById(R.id.responseText);
         btn_login.setOnClickListener(this);
@@ -53,9 +49,9 @@ public class  Serialized extends Activity implements View.OnClickListener {
      */
     public boolean verifyServerResponse(String res){
 
-        Person tmp = gson.fromJson(res, Person.class);
+        User tmp = gson.fromJson(res, User.class);
 
-        if(tmp.equals(person)){
+        if(tmp.equals(user)){
             Toast.makeText(getApplicationContext(),"Le traitement de sérialisation est terminé: succès",Toast.LENGTH_LONG).show();
             return true;
         }else{
@@ -71,10 +67,12 @@ public class  Serialized extends Activity implements View.OnClickListener {
             @Override
             public boolean handleServerResponse(String response) {
                 verifyServerResponse(response);
+                et_response.setVisibility(View.VISIBLE);
+                et_response.setText(response);
                 return false;
             }
         });
-        asycSendHandler.execute(request,url);
+        asycSendHandler.execute(request,url, "text/plain");
         return null ;
     }
 
@@ -85,8 +83,9 @@ public class  Serialized extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         if(v==btn_login)
         {
-            person = new Person("Jean", "Paul");
-            String serializedData = gson.toJson(person);
+
+            user = new User(et_usename.getText().toString(), et_password.getText().toString());
+            String serializedData = gson.toJson(user);
 
             sendRequest(serializedData, URL_SERVER);
         }
