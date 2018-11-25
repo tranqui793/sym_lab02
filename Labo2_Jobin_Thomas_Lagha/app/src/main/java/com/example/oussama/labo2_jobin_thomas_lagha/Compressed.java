@@ -1,3 +1,14 @@
+/**
+-----------------------------------------------------------------------------------------
+Laboratory  : SYM - Laboratory n°2
+File        : Compressed.java
+Author      : Lagha Oussama, Jobin Simon, Thomas Benjamin
+Date        : 20.11.2018
+Goal        : Implementation of the compression data transfer
+Remark(s)   : -
+----------------------------------------------------------------------------------------
+*/
+
 package com.example.oussama.labo2_jobin_thomas_lagha;
 
 import android.app.Activity;
@@ -9,15 +20,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import org.apache.commons.io.IOUtils;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.zip.Deflater;
-import java.util.zip.DeflaterInputStream;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
 
@@ -31,7 +36,6 @@ public class  Compressed extends Activity implements View.OnClickListener {
     //UI
     private Button btn_login;
     private EditText  et_usename,et_password, et_response;
-
 
     //Serialization/deserialization
     private final Gson gson = new GsonBuilder().create();

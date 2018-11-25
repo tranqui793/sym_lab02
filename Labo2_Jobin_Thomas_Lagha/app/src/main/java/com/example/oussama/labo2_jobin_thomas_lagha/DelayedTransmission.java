@@ -1,3 +1,15 @@
+/**
+ -----------------------------------------------------------------------------------------
+ Laboratory  : SYM - Laboratory n°2
+ File        : GraphQL.java
+ Author      : Lagha Oussama, Jobin Simon, Thomas Benjamin
+ Date        : 20.11.2018
+ Goal        : Implementation of the delayed data transfer
+ Remark(s)   : -
+ ----------------------------------------------------------------------------------------
+ */
+
+
 package com.example.oussama.labo2_jobin_thomas_lagha;
 
 import android.app.Activity;
@@ -75,6 +87,10 @@ public class DelayedTransmission extends Activity implements View.OnClickListene
         }
     }
 
+    /** Send a request to the url in paramter
+     * @param request the request to send
+     * @param url the url to which send the request
+     */
     public void sendRequest(String request, String url) {
         // utilisation de l'envoi utilisé au point 1
         AsynchSendRequest asycSendHandler = new AsynchSendRequest();

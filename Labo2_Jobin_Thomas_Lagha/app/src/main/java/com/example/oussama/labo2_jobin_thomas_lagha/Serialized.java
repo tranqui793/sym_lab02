@@ -1,3 +1,15 @@
+/**
+-----------------------------------------------------------------------------------------
+Laboratory  : SYM - Laboratory n°2
+File        : Serialized.java
+Author      : Lagha Oussama, Jobin Simon, Thomas Benjamin
+Date        : 20.11.2018
+Goal        : Implementation of the serialization data transfer
+Remark(s)   : -
+----------------------------------------------------------------------------------------
+*/
+
+
 package com.example.oussama.labo2_jobin_thomas_lagha;
 
 import android.app.Activity;
@@ -9,8 +21,6 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.InputStream;
-
 
 public class  Serialized extends Activity implements View.OnClickListener {
 
@@ -21,7 +31,7 @@ public class  Serialized extends Activity implements View.OnClickListener {
     private Button btn_login;
     private EditText  et_usename,et_password, et_response;
 
-    //Conection
+    //Connection
     private final String URL_SERVER = "http://sym.iict.ch/rest/json";
 
     //Serialization/deserialization
