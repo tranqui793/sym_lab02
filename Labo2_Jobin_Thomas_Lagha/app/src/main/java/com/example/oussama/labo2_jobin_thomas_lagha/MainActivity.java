@@ -12,9 +12,8 @@ public class MainActivity extends AppCompatActivity {
     private  Button asynchroneButt;
     private  Button graphQLButt;
     private  Button serializedButt;
-
-    //private final Button defferedButt;
-    //private final Button compressedButt;
+    private Button defferedButt;
+    private Button compressedButt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,20 +44,20 @@ public class MainActivity extends AppCompatActivity {
                 serialized(v);
             }
         });
-        /*
-        defferedButt = findViewById(R.id.defferedButt_id);
+
+        defferedButt = findViewById(R.id.différée);
         defferedButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 deffered(v);
             }
         });
 
-        compressedButt = findViewById(R.id.compressedButt_id);
+        compressedButt = findViewById(R.id.compressée);
         compressedButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 compressed(v);
             }
-        });*/
+        });
     }
 
     public void loginActivity(View view){
@@ -70,13 +69,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentGraphQL);
     }
 
-    public void serialized(View view ) {
+    public void serialized(View view) {
         Intent intentSerialized = new Intent(this, Serialized.class);
         startActivity(intentSerialized);
     }
 
-    /*public void deffered(){
-        Intent intentDeffered = new Intent(this,Deffered.class);
+    public void deffered(View view){
+        Intent intentDeffered = new Intent(this, Deffered.class);
         startActivity(intentDeffered);
     }
 
@@ -84,6 +83,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intentCompressed = new Intent(this,Compressed.class);
         startActivity(intentCompressed);
 
-    }*/
+    }
 
 }
