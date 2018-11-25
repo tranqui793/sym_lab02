@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 serialized(v);
             }
         });
-
+/**
         defferedButt = findViewById(R.id.différée);
         defferedButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -57,15 +57,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 compressed(v);
             }
-        });
+        });**/
     }
 
     public void loginActivity(View view){
-        Intent intentLogin=new Intent(this,LoginAsynchrone.class);
+        Intent intentLogin=new Intent(this, LoginAsynchrone.class);
         startActivity(intentLogin);
     }
+
+    public void delayedActivity(View view){
+        Intent intentDelayed = new Intent(this, DelayedTransmission.class);
+        startActivity(intentDelayed);
+    }
+
     public void graphQL(View view ){
-        Intent intentGraphQL=new Intent(this,GraphQL.class);
+        Intent intentGraphQL=new Intent(this, GraphQL.class);
         startActivity(intentGraphQL);
     }
 
@@ -74,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentSerialized);
     }
 
-    public void deffered(View view){
+   /** public void deffered(View view){
         Intent intentDeffered = new Intent(this, Deffered.class);
         startActivity(intentDeffered);
     }
@@ -84,5 +90,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentCompressed);
 
     }
-
+**/
 }

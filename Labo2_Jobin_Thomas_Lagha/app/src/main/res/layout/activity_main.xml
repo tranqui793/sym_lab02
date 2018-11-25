@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/différée"
+        android:onClick="delayedActivity"
         app:layout_constraintBottom_toTopOf="@+id/GraphQL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

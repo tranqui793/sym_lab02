@@ -3,8 +3,10 @@ package com.example.oussama.labo2_jobin_thomas_lagha;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import org.json.JSONArray;
@@ -16,15 +18,27 @@ import java.util.LinkedList;
 
 public class GraphQL extends Activity {
     Spinner spiner ;
-    EditText et_response;
     ArrayList<Author> authors=new ArrayList<>();
+    LinearLayout postLayouts;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.graphql);
         spiner=findViewById(R.id.spinner);
-        et_response=findViewById(R.id.responseTestt);
         sendRequestAllAuthers();
+        spiner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                postLayouts = findViewById(R.id.layoutResponse);
+                Author author = authors.get((int)id);
+                sendRequestAuthorPosts(author);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //nothing
+            }
+        });
     }
     public String sendRequestAllAuthers(){
         AsynchSendRequest asycSendHandler=new AsynchSendRequest();
@@ -60,6 +74,18 @@ public class GraphQL extends Activity {
         asycSendHandler.execute("{ \"query\": \"{allAuthors{id, first_name, last_name }}\" }","http://sym.iict.ch/api/graphql","application/json");
         return null ;
     }
+    public String sendRequestAuthorPosts(Author author){
+        AsynchSendRequest asycSendHandler=new AsynchSendRequest();
+        asycSendHandler.setCommunicationEventListener(new CommunicationEventListener() {
+            @Override
+            public boolean handleServerResponse(String response) {
+
+                return false;
+            }
+        });
+        asycSendHandler.execute("{\n" +
+                "\"query\": \"{allPostByAuthor(authorId:" + author.getId() +")}}","http://sym.iict.ch/api/graphql","application/json");
+        return null ;}
 }
 class Author{
     String id;
