@@ -9,9 +9,9 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
 
-    private final Button asynchroneButt;
-    private final Button graphQLButt;
-    private final Button serializedButt;
+    private  Button asynchroneButt;
+    private  Button graphQLButt;
+    private  Button serializedButt;
 
     //private final Button defferedButt;
     //private final Button compressedButt;
@@ -25,21 +25,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initButtons(){
-        asynchroneButt = findViewById(R.id.asynchroneButt_id);
+        asynchroneButt = findViewById(R.id.asynchrone);
         asynchroneButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 loginActivity(v);
             }
         });
 
-        graphQLButt = findViewById(R.id.graphQLButt_id);
+        graphQLButt = findViewById(R.id.GraphQL);
         graphQLButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 graphQL(v);
             }
         });
 
-        serializedButt = findViewById(R.id.serializedButt_id);
+        serializedButt = findViewById(R.id.sérialisation);
         serializedButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 serialized(v);
